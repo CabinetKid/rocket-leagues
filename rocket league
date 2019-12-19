@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+<title>Rocket League Crate Simulator</title>
+<meta name="author" content="Konrad" />
+<meta name="docterms.rights" content="Konrad">
+
+<style>
+
+</style>
+
+</head>
+
+<body>
+
+<p id="prompt">Click the crate to open it</p>
+<p id="prompt1" style="display: none;">Click to open it again</p>
+<img id="pcc" value="Open" src="Images/pcc.jpeg" style="display" onClick="Open()"/>
+<img id="rareItem1" src="Images/DragonLordRareDecal.png" style="display: none;" />
+<img id="rareItem2" src="Images/LoneWolfRareDecal.png" style="display: none;" />
+<img id="rareItem3" src="Images/Pearlesnet(Matte).png" style="display: none;" />
+<img id="rareItem4" src="Images/JagerStarlightRareDecal.png" style="display: none;" />
+<img id="rareItem5" src="Images/DominusFunnyBookRareDecal.png" style="display: none;" />
+
+<img id="veryItem1" src="Images/Chakram.png" style="display: none;" />
+<img id="veryItem2" src="Images/Yamane.png" style="display: none;" />
+<img id="veryItem3" src="Images/Gaiden.png" style="display: none;" />
+<img id="veryItem4" src="Images/Reaper.png" style="display: none;" />
+
+<img id="importItem1" src="Images/Jager.png" style="display: none;" />
+<img id="importItem2" src="Images/Comet.png" style="display: none;" />
+<img id="importItem3" src="Images/Twinzer.png" style="display: none;" />
+
+<img id="exoticItem1" src="Images/Zomba.png" style="display: none;" />
+<img id="exoticItem2" src="Images/Draco.png" style="display: none;" />
+<img id="exoticItem3" src="Images/Infinuim.png" style="display: none;" />
+
+<img id="bm1" src="Images/Dissolver.png" style="display: none;" />
+<img id="bm2" src="Images/Firegod.png" style="display: none;" />
+<img id="bm3" src="Images/Mainframe.png" style="display: none;" />
+
+<div style="position: absolute; right: 16px; top: 0%;">
+<input type="text" style="font-size:50px" id="point" value="0" width="500" height="500" > </input>
+</div>
+<div style="position: absolute; right: 16px; top: 5%;">
+<p style="font-size: 40px;" id="prompt2">Number of Crates Opened</p>
+</div>
+
+<div style="position: absolute; right: 16px; top: 20%;">
+<input type="text" style="font-size:35px" id="point1" value="0" width="500" height="500" > </input>
+</div>
+<div style="position: absolute; right: 16px; top: 25%;">
+<p style="font-size: 25px;" id="prompt3">Number of Rares</p>
+</div>
+
+<div style="position: absolute; right: 16px; top: 35%;">
+<input type="text" style="font-size:35px" id="point2" value="0" width="500" height="500" > </input>
+</div>
+<div style="position: absolute; right: 16px; top: 40%;">
+<p style="font-size: 25px;" id="prompt4">Number of VeryRares</p>
+</div>
+
+<div style="position: absolute; right: 16px; top: 50%;">
+<input type="text" style="font-size:35px" id="point3" value="0" width="500" height="500" > </input>
+</div>
+<div style="position: absolute; right: 16px; top: 55%;">
+<p style="font-size: 25px;" id="prompt5">Number of Imports</p>
+</div>
+
+<div style="position: absolute; right: 16px; top: 65%;">
+<input type="text" style="font-size:35px" id="point4" value="0" width="500" height="500" > </input>
+</div>
+<div style="position: absolute; right: 16px; top: 70%;">
+<p style="font-size: 25px;" id="prompt6">Number of Exotics</p>
+</div>
+
+<div style="position: absolute; right: 16px; top: 80%;">
+<input type="text" style="font-size:35px" id="point5" value="0" width="500" height="500" > </input>
+</div>
+<div style="position: absolute; right: 16px; top: 85%;">
+<p style="font-size: 25px;" id="prompt7">Number of Black Markets</p>
+</div>
+
+<!-- The first script will decied the rareity -->
+
+<script type="text/javascript">
+
+var a = 0;
+var b = 0;
+var c = 0;
+var d = 0;
+var e = 0;
+var f = 0;
+function Open(Open) {
+    document.getElementById("point").value = ++a;
+	var randomValue = Math.floor ((Math.random() * 100) + 1); 
+	console.log(randomValue);
+    var rare = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55 ];
+    var veryRare = [56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83 ];
+    var import1 = [84,85,86,87,88,89,90,91,92,93,94,95 ];
+    var Exotic = [96,97,98,99 ];
+    var bm = [ 100 ];
+
+
+	if (rare.includes(randomValue)){
+		Clear();
+		document.getElementById("prompt").innerHTML = "You got a Rare";
+		document.getElementById("prompt1").style = "display";
+		document.getElementById("point1").value = ++b;
+		rareItems();
+
+		
+	} else if 
+		(veryRare.includes(randomValue)){
+		Clear();   
+		document.getElementById("prompt").innerHTML = "You got a VeryRare";
+		document.getElementById("prompt1").style = "display";
+		document.getElementById("point2").value = ++c;
+		veryrareItems();
+	
+	} else if 
+		(import1.includes(randomValue)){
+		Clear();
+		document.getElementById("prompt").innerHTML = "You got a Import";
+		document.getElementById("prompt1").style = "display";
+		document.getElementById("point3").value = ++d;
+		importItems();
+	
+
+	} else if 
+		(Exotic.includes(randomValue)){
+		Clear();
+		document.getElementById("prompt").innerHTML = "You got a Exotic";
+		document.getElementById("prompt1").style = "display";
+		document.getElementById("point4").value = ++e;
+		exoticItems();
+
+
+	} else if 
+		(bm.includes(randomValue)){
+		Clear();
+		document.getElementById("prompt").innerHTML = "You got a Black Market";
+		document.getElementById("prompt1").style = "display";
+		document.getElementById("point5").value = ++f;
+		bmItems();
+	}
+
+
+}
+	
+
+</script>
+
+<!-- This scipt will show the items of each rareity -->
+
+<script type="text/javascript">
+
+	function rareItems(){
+		var randomValue1 = Math.floor ((Math.random() * 5) + 1);
+		var item1 = 1;
+		var item2 = 2;
+		var item3 = 3;
+		var item4 = 4;
+		var item5 = 5;
+
+			if 
+				(item1 == randomValue1){
+					document.getElementById("rareItem1").style = "display";
+				}
+
+			else if
+				(item2 == randomValue1){
+					document.getElementById("rareItem2").style = "display";
+				}
+			else if
+				(item3 == randomValue1){
+					document.getElementById("rareItem3").style = "display";
+				}
+			else if
+				(item4 == randomValue1){
+					document.getElementById("rareItem4").style = "display";
+				}
+			else if
+				(item5 == randomValue1){
+					document.getElementById("rareItem5").style = "display";
+				}
+
+		}
+
+	function veryrareItems(){
+		var randomValue1 = Math.floor ((Math.random() * 4) + 1);
+		var item1 = 1;
+		var item2 = 2;
+		var item3 = 3;
+		var item4 = 4;
+
+
+			if 
+				(item1 == randomValue1){
+					document.getElementById("veryItem1").style = "display";
+				}
+
+			else if
+				(item2 == randomValue1){
+					document.getElementById("veryItem2").style = "display";
+				}
+			else if
+				(item3 == randomValue1){
+					document.getElementById("veryItem3").style = "display";
+				}
+			else if
+				(item4 == randomValue1){
+					document.getElementById("veryItem4").style = "display";
+				}
+		}
+
+	function importItems(){
+		var randomValue1 = Math.floor ((Math.random() * 3) + 1);
+		var item1 = 1;
+		var item2 = 2;
+		var item3 = 3;
+
+
+			if 
+				(item1 == randomValue1){
+					document.getElementById("importItem1").style = "display";
+				}
+
+			else if
+				(item2 == randomValue1){
+					document.getElementById("importItem2").style = "display";
+				}
+			else if
+				(item3 == randomValue1){
+					document.getElementById("importItem3").style = "display";
+				}
+		}
+
+	function exoticItems(){
+		var randomValue1 = Math.floor ((Math.random() * 3) + 1);
+		var item1 = 1;
+		var item2 = 2;
+		var item3 = 3;
+
+
+			if 
+				(item1 == randomValue1){
+					document.getElementById("exoticItem1").style = "display";
+				}
+
+			else if
+				(item2 == randomValue1){
+					document.getElementById("exoticItem2").style = "display";
+				}
+			else if
+				(item3 == randomValue1){
+					document.getElementById("exoticItem3").style = "display";
+				}
+		}
+
+	function bmItems(){
+		var randomValue1 = Math.floor ((Math.random() * 3) + 1);
+		var item1 = 1;
+		var item2 = 2;
+		var item3 = 3;
+
+			if 
+				(item1 == randomValue1){
+					document.getElementById("bm1").style = "display";
+				}
+
+			 else if
+				(item2 == randomValue1){
+					document.getElementById("bm2").style = "display";
+				}
+			else if
+				(item3 == randomValue1){
+					document.getElementById("bm3").style = "display";
+				}
+			}
+
+
+</script>
+
+<script type="text/javascript">
+	
+	function Clear(){
+
+		document.getElementById("rareItem1").style = "display: none;";
+		document.getElementById("rareItem2").style = "display: none;";
+		document.getElementById("rareItem3").style = "display: none;";
+		document.getElementById("rareItem4").style = "display: none;";
+		document.getElementById("rareItem5").style = "display: none;";
+
+		document.getElementById("veryItem1").style = "display: none;";
+		document.getElementById("veryItem2").style = "display: none;";
+		document.getElementById("veryItem3").style = "display: none;";
+		document.getElementById("veryItem4").style = "display: none;";
+
+		document.getElementById("importItem1").style = "display: none;";
+		document.getElementById("importItem2").style = "display: none;";
+		document.getElementById("importItem3").style = "display: none;";
+
+		document.getElementById("exoticItem1").style = "display: none;";
+		document.getElementById("exoticItem2").style = "display: none;";
+		document.getElementById("exoticItem3").style = "display: none;";
+
+		document.getElementById("bm1").style = "display: none;";
+		document.getElementById("bm2").style = "display: none;";
+		document.getElementById("bm3").style = "display: none;";
+
+	}
+
+
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
